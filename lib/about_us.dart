@@ -9,7 +9,7 @@ class AboutUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'About Us',
+      title: 'NSRMT | HeyCode Inc.',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

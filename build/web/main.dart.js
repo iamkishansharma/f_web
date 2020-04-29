@@ -24007,7 +24007,7 @@ $S:0}
 S.Oe.prototype={
 $1:function(a){return new S.dj(null)}}
 F.dv.prototype={
-H:function(a){return S.WK(!1,new F.nY(null),X.Ut(null,C.ox),"Home Page")}}
+H:function(a){return S.WK(!1,new F.nY(null),X.Ut(null,C.ox),"NSRMT | HeyCode Inc.")}}
 F.nY.prototype={
 aJ:function(){return new F.AE(C.m)}}
 F.AE.prototype={
@@ -24084,7 +24084,7 @@ $S:0}
 F.Pk.prototype={
 $1:function(a){return new S.dj(null)}}
 Z.e_.prototype={
-H:function(a){return S.WK(!1,new Z.oK(null),X.Ut(null,C.wg),"Money Tracker")}}
+H:function(a){return S.WK(!1,new Z.oK(null),X.Ut(null,C.wg),"NSRMT | HeyCode Inc.")}}
 Z.oK.prototype={
 aJ:function(){return new Z.Bd(C.m)}}
 Z.Bd.prototype={

@@ -9,7 +9,7 @@ class ContactUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Contact Us',
+      title: 'NSRMT | HeyCode Inc.',
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),

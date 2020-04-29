@@ -9,7 +9,7 @@ class MoneyTrack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Money Tracker",
+      title: "NSRMT | HeyCode Inc.",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.pink,
