@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:f_web/about_us.dart';
 import 'package:f_web/contact_us.dart';
 import 'package:flutter/material.dart';
@@ -115,9 +113,11 @@ class _MoneyTrackHomeState extends State<MoneyTrackHome> {
           ],
         ),
       ),
-      body: WebView(
-        initialUrl: 'https://www.google.com',
-        javascriptMode: JavascriptMode.unrestricted,
+      body: Container(
+        color: Colors.pinkAccent,
+        alignment: Alignment.center,
+        padding: EdgeInsets.all(20),
+        child: Image.asset('images/banner.jpg', scale: 0.8, colorBlendMode: BlendMode.darken,),
       ),
     );
   }

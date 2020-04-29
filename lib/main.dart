@@ -115,6 +115,9 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: Container(
+        alignment: Alignment.center,
+        color: Colors.redAccent,
+        padding: EdgeInsets.all(20),
         child: Image.asset('images/banner.jpg', width: double.infinity,),
       ),
     );
