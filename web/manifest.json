@@ -1,11 +1,11 @@
 {
-    "name": "f_web",
-    "short_name": "f_web",
+    "name": "New Shree Ram Money Transfer",
+    "short_name": "NSRMT",
     "start_url": ".",
     "display": "minimal-ui",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "A new Flutter app for NSRMT.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
