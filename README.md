@@ -1,7 +1,5 @@
 # f_web
-
-A new Flutter project.
-
+This is a project for NSRMT WebApp n MobileApp.
 ## Getting Started
 
 This project is a starting point for a Flutter application.
