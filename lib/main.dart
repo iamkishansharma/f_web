@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:f_web/about_us.dart';
 import 'package:f_web/money_track.dart';
@@ -27,8 +28,57 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-    @override
+  List<String> lt = new List();
+  CarouselSlider slide;
+
+  @override
+  void initState(){
+    super.initState();
+    lt.add('images/slide1.png');
+    lt.add('images/slide2.png');
+    lt.add('images/slide3.png');
+    lt.add('images/slide1.png');
+    lt.add('images/slide2.png');
+    lt.add('images/slide3.png');
+  }
+  @override
   Widget build(BuildContext context) {
+    slide = new CarouselSlider(
+  items: lt.map((name) {
+    return Builder(
+      builder: (BuildContext context) {
+        return Container(
+          width: MediaQuery.of(context).size.width,
+          margin: EdgeInsets.symmetric(horizontal: 5.0),
+          decoration: BoxDecoration(
+            color: Colors.redAccent,
+          ),
+          child: FittedBox(
+            child: Image.asset(name),
+            fit: BoxFit.fill
+          ),
+        );
+      },
+    );
+  }).toList(),
+  options: CarouselOptions(
+      height: MediaQuery.of(context).size.height*.5,
+      aspectRatio: 16/9,
+      viewportFraction: 0.8,
+      initialPage: 0,
+      enableInfiniteScroll: true,
+      reverse: false,
+      autoPlay: true,
+      autoPlayInterval: Duration(seconds: 2),
+      autoPlayAnimationDuration: Duration(milliseconds: 800),
+      autoPlayCurve: Curves.fastOutSlowIn,
+      //pauseAutoPlayOnTouch: Duration(seconds: 10),
+      enlargeCenterPage: true,
+      //onPageChanged: callbackFunction,
+      scrollDirection: Axis.horizontal,
+   ),
+);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -114,12 +164,31 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: Container(
-        alignment: Alignment.center,
-        color: Colors.redAccent,
-        padding: EdgeInsets.all(20),
-        child: Image.asset('images/banner.jpg', width: double.infinity,),
-      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Flexible(
+            flex: 3,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Expanded(
+                  flex: 1,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      slide
+                    ],
+                  ),
+                ),
+
+                //There can be more hil with flx 1
+              ],
+            ),
+          ),
+        ],
+      ),        
+       
     );
   }
 }
