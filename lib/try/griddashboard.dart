@@ -61,7 +61,7 @@ class GridDashboard extends StatelessWidget {
                   Image.asset(
                     data.img,
                     width: MediaQuery.of(context).size.width >=800 ?MediaQuery.of(context).size.width*.2 :MediaQuery.of(context).size.width *.1,
-                    height: MediaQuery.of(context).size.height >=800 ?MediaQuery.of(context).size.height*.2 :MediaQuery.of(context).size.height *.1,
+                    height: MediaQuery.of(context).size.height >=200 ?MediaQuery.of(context).size.height*.2 :MediaQuery.of(context).size.height *.1,
                   ),
                   SizedBox(
                     height: 14,
