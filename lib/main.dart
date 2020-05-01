@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:f_web/try/griddashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:f_web/about_us.dart';
 import 'package:f_web/money_track.dart';
@@ -32,7 +33,7 @@ class _HomePageState extends State<HomePage> {
   CarouselSlider slide;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     lt.add('images/slide1.png');
     lt.add('images/slide2.png');
@@ -41,43 +42,41 @@ class _HomePageState extends State<HomePage> {
     lt.add('images/slide2.png');
     lt.add('images/slide3.png');
   }
+
   @override
   Widget build(BuildContext context) {
     slide = new CarouselSlider(
-  items: lt.map((name) {
-    return Builder(
-      builder: (BuildContext context) {
-        return Container(
-          width: MediaQuery.of(context).size.width,
-          margin: EdgeInsets.symmetric(horizontal: 5.0),
-          decoration: BoxDecoration(
-            color: Colors.redAccent,
-          ),
-          child: FittedBox(
-            child: Image.asset(name),
-            fit: BoxFit.fill
-          ),
+      items: lt.map((name) {
+        return Builder(
+          builder: (BuildContext context) {
+            return Container(
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
+              decoration: BoxDecoration(
+                color: Colors.redAccent,
+              ),
+              child: FittedBox(child: Image.asset(name), fit: BoxFit.fill),
+            );
+          },
         );
-      },
+      }).toList(),
+      options: CarouselOptions(
+        height: MediaQuery.of(context).size.height * .25,
+        aspectRatio: 16 / 9,
+        viewportFraction: 0.8,
+        initialPage: 0,
+        enableInfiniteScroll: true,
+        reverse: false,
+        autoPlay: true,
+        autoPlayInterval: Duration(seconds: 2),
+        autoPlayAnimationDuration: Duration(milliseconds: 800),
+        autoPlayCurve: Curves.fastOutSlowIn,
+        //pauseAutoPlayOnTouch: Duration(seconds: 10),
+        enlargeCenterPage: true,
+        //onPageChanged: callbackFunction,
+        scrollDirection: Axis.horizontal,
+      ),
     );
-  }).toList(),
-  options: CarouselOptions(
-      height: MediaQuery.of(context).size.height*.5,
-      aspectRatio: 16/9,
-      viewportFraction: 0.8,
-      initialPage: 0,
-      enableInfiniteScroll: true,
-      reverse: false,
-      autoPlay: true,
-      autoPlayInterval: Duration(seconds: 2),
-      autoPlayAnimationDuration: Duration(milliseconds: 800),
-      autoPlayCurve: Curves.fastOutSlowIn,
-      //pauseAutoPlayOnTouch: Duration(seconds: 10),
-      enlargeCenterPage: true,
-      //onPageChanged: callbackFunction,
-      scrollDirection: Axis.horizontal,
-   ),
-);
 
     return Scaffold(
       appBar: AppBar(
@@ -93,25 +92,29 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.home),
             autofocus: true,
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => MyApp()));
             },
           ),
           IconButton(
             icon: Icon(Icons.attach_money),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => MoneyTrack()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => MoneyTrack()));
             },
           ),
           IconButton(
             icon: Icon(Icons.chrome_reader_mode),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUsHome()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AboutUsHome()));
             },
           ),
           IconButton(
             icon: Icon(Icons.call),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ContactUsHome()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ContactUsHome()));
             },
           ),
         ],
@@ -134,7 +137,8 @@ class _HomePageState extends State<HomePage> {
               enabled: false,
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => MyApp()));
               },
             ),
             ListTile(
@@ -142,7 +146,8 @@ class _HomePageState extends State<HomePage> {
               title: Text("Track Money"),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MoneyTrack()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MoneyTrack()));
               },
             ),
             ListTile(
@@ -150,45 +155,41 @@ class _HomePageState extends State<HomePage> {
               title: Text('About Us'),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUsHome()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AboutUsHome()));
               },
             ),
             ListTile(
               leading: Icon(Icons.attach_money),
               title: Text('Contact Us'),
               onTap: () {
-                 Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ContactUsHome()));
+                Navigator.of(context).pop();
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ContactUsHome()));
               },
             ),
           ],
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Flexible(
-            flex: 3,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      slide
-                    ],
-                  ),
-                ),
-
-                //There can be more hil with flx 1
-              ],
+      body: Container(
+        color: Colors.redAccent,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.all(MediaQuery.of(context).size.width * .05),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[slide],
+              ),
             ),
-          ),
-        ],
-      ),        
-       
+
+            GridDashboard(),
+            //There can be more hil with flx 1
+          ],
+        ),
+      ),
     );
   }
 }
