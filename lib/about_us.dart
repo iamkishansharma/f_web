@@ -118,16 +118,16 @@ class _AboutUsHomeState extends State<AboutUsHome> {
         height: MediaQuery.of(context).size.height,
         color: Colors.lightBlue,
         child: Center(
-          child: Text(
-            "About Us Page",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontSize: MediaQuery.of(context).size.height*.05,
-            ),
+          child: RaisedButton(
+            child: Text("Tab App"),
+            hoverColor: Colors.green,
+            splashColor: Colors.red,
+            onPressed: (){
+              
+            }
+          ),
           ),
         ),
-      ),
     );
   }
 }

@@ -55,14 +55,16 @@ class _HomePageState extends State<HomePage> {
               decoration: BoxDecoration(
                 color: Colors.redAccent,
               ),
-              child: FittedBox(child: Image.asset(name), fit: BoxFit.fill),
+              child: FittedBox(child: Image.asset(name), fit: BoxFit.contain),
             );
           },
         );
       }).toList(),
       options: CarouselOptions(
-        height: MediaQuery.of(context).size.height * .25,
-        aspectRatio: 16 / 9,
+        height: (MediaQuery.of(context).size.width >= 800
+            ? MediaQuery.of(context).size.height * .5
+            : MediaQuery.of(context).size.height * .25),
+        //aspectRatio: 16 / 9,
         viewportFraction: 0.8,
         initialPage: 0,
         enableInfiniteScroll: true,
@@ -70,7 +72,7 @@ class _HomePageState extends State<HomePage> {
         autoPlay: true,
         autoPlayInterval: Duration(seconds: 2),
         autoPlayAnimationDuration: Duration(milliseconds: 800),
-        autoPlayCurve: Curves.fastOutSlowIn,
+        autoPlayCurve: Curves.linear,
         //pauseAutoPlayOnTouch: Duration(seconds: 10),
         enlargeCenterPage: true,
         //onPageChanged: callbackFunction,
@@ -178,13 +180,18 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.all(MediaQuery.of(context).size.width * .05),
+              margin: EdgeInsets.fromLTRB(
+                  0,
+                  MediaQuery.of(context).size.width * .02,
+                  0,
+                  MediaQuery.of(context).size.width * .02),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[slide],
               ),
             ),
 
+            
             GridDashboard(),
             //There can be more hil with flx 1
           ],

@@ -45,10 +45,11 @@ class GridDashboard extends StatelessWidget {
     List<Items> myList = [item1, item2, item3, item4, item5, item6];
     var color = 0xff000000;
     return Flexible(
+      flex: 1,
       child: GridView.count(
           childAspectRatio: 1.0,
-          padding: EdgeInsets.only(left: 16, right: 16),
-          crossAxisCount: MediaQuery.of(context).size.width >=800 ? 4 : 2,
+          padding: EdgeInsets.only(left: 20, right: 20),
+          crossAxisCount: MediaQuery.of(context).size.width >=800 ? 6 : 2,
           crossAxisSpacing: 18,
           mainAxisSpacing: 18,
           children: myList.map((data) {
