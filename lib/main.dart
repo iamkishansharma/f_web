@@ -182,9 +182,9 @@ class _HomePageState extends State<HomePage> {
             Container(
               margin: EdgeInsets.fromLTRB(
                   0,
-                  MediaQuery.of(context).size.width * .02,
+                  MediaQuery.of(context).size.width * .015,
                   0,
-                  MediaQuery.of(context).size.width * .02),
+                  MediaQuery.of(context).size.width * .015),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[slide],
