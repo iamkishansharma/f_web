@@ -55,14 +55,14 @@ class _HomePageState extends State<HomePage> {
               decoration: BoxDecoration(
                 color: Colors.redAccent,
               ),
-              child: FittedBox(child: Image.asset(name), fit: BoxFit.contain),
+              child: FittedBox(child: ClipRRect(borderRadius: BorderRadius.circular(20), child: Image.asset(name, width:MediaQuery.of(context).size.width),),fit: BoxFit.fill),
             );
           },
         );
       }).toList(),
       options: CarouselOptions(
         height: (MediaQuery.of(context).size.width >= 800
-            ? MediaQuery.of(context).size.height * .5
+            ? MediaQuery.of(context).size.height * .4
             : MediaQuery.of(context).size.height * .25),
         //aspectRatio: 16 / 9,
         viewportFraction: 0.8,
@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
         autoPlay: true,
         autoPlayInterval: Duration(seconds: 2),
         autoPlayAnimationDuration: Duration(milliseconds: 800),
-        autoPlayCurve: Curves.linear,
+        autoPlayCurve: Curves.fastOutSlowIn,
         //pauseAutoPlayOnTouch: Duration(seconds: 10),
         enlargeCenterPage: true,
         //onPageChanged: callbackFunction,
@@ -182,17 +182,46 @@ class _HomePageState extends State<HomePage> {
             Container(
               margin: EdgeInsets.fromLTRB(
                   0,
-                  MediaQuery.of(context).size.width * .015,
+                  MediaQuery.of(context).size.width * .012,
                   0,
-                  MediaQuery.of(context).size.width * .015),
+                  MediaQuery.of(context).size.width * .012),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[slide],
               ),
             ),
 
-            
-            GridDashboard(),
+            Expanded(
+              child:Container(
+                margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                child: GridView.count(
+                  scrollDirection: MediaQuery.of(context).orientation != Orientation.portrait? Axis.horizontal:Axis.vertical,
+              crossAxisCount:2,
+              // Generate 100 widgets that display their index in the List.
+              children: List.generate(6, (index) {
+                return Container(
+                  margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                  color: Colors.black,
+                  child: Center(
+                    child: Column(
+                      children: <Widget>[
+                        Image.asset('images/vicon/setting.png'),
+                        Text(
+                          'Kishan$index',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize:20.0,
+                          ),
+                        )
+                      ]
+                    ),
+                ),
+              );
+            }),
+            ),
+              ),
+            )
             //There can be more hil with flx 1
           ],
         ),

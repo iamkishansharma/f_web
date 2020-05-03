@@ -41,26 +41,30 @@ class _ContactUsHomeState extends State<ContactUsHome> {
           IconButton(
             icon: Icon(Icons.home),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => MyApp()));
             },
           ),
           IconButton(
             icon: Icon(Icons.attach_money),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => MoneyTrack()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => MoneyTrack()));
             },
           ),
           IconButton(
             icon: Icon(Icons.chrome_reader_mode),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUsHome()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AboutUsHome()));
             },
           ),
           IconButton(
             icon: Icon(Icons.call),
             autofocus: true,
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ContactUsHome()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ContactUsHome()));
             },
           ),
         ],
@@ -82,7 +86,8 @@ class _ContactUsHomeState extends State<ContactUsHome> {
               title: Text('Home Page'),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => MyApp()));
               },
             ),
             ListTile(
@@ -90,7 +95,8 @@ class _ContactUsHomeState extends State<ContactUsHome> {
               title: Text("Track Money"),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MoneyTrack()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MoneyTrack()));
               },
             ),
             ListTile(
@@ -98,7 +104,8 @@ class _ContactUsHomeState extends State<ContactUsHome> {
               title: Text('About Us'),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUsHome()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AboutUsHome()));
               },
             ),
             ListTile(
@@ -107,7 +114,8 @@ class _ContactUsHomeState extends State<ContactUsHome> {
               enabled: false,
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ContactUsHome()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ContactUsHome()));
               },
             ),
           ],
@@ -117,15 +125,31 @@ class _ContactUsHomeState extends State<ContactUsHome> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         color: Colors.purpleAccent,
-        child: Center(
-          child: Text(
-            "Contact Page",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontSize: MediaQuery.of(context).size.height*.05,
+        child: ListView(
+          // This next line does the trick.
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            Container(
+              width: 160.0,
+              color: Colors.red,
             ),
-          ),
+            Container(
+              width: 160.0,
+              color: Colors.blue,
+            ),
+            Container(
+              width: 160.0,
+              color: Colors.green,
+            ),
+            Container(
+              width: 160.0,
+              color: Colors.yellow,
+            ),
+            Container(
+              width: 160.0,
+              color: Colors.orange,
+            ),
+          ],
         ),
       ),
     );

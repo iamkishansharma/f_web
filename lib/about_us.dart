@@ -41,26 +41,30 @@ class _AboutUsHomeState extends State<AboutUsHome> {
           IconButton(
             icon: Icon(Icons.home),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => MyApp()));
             },
           ),
           IconButton(
             icon: Icon(Icons.attach_money),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => MoneyTrack()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => MoneyTrack()));
             },
           ),
           IconButton(
             icon: Icon(Icons.chrome_reader_mode),
             autofocus: true,
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUsHome()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AboutUsHome()));
             },
           ),
           IconButton(
             icon: Icon(Icons.call),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ContactUsHome()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ContactUsHome()));
             },
           ),
         ],
@@ -82,7 +86,8 @@ class _AboutUsHomeState extends State<AboutUsHome> {
               title: Text('Home Page'),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => MyApp()));
               },
             ),
             ListTile(
@@ -90,7 +95,8 @@ class _AboutUsHomeState extends State<AboutUsHome> {
               title: Text("Track Money"),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MoneyTrack()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MoneyTrack()));
               },
             ),
             ListTile(
@@ -99,7 +105,8 @@ class _AboutUsHomeState extends State<AboutUsHome> {
               enabled: false,
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUsHome()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AboutUsHome()));
               },
             ),
             ListTile(
@@ -107,7 +114,8 @@ class _AboutUsHomeState extends State<AboutUsHome> {
               title: Text('Contact Us'),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ContactUsHome()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ContactUsHome()));
               },
             ),
           ],
@@ -117,17 +125,22 @@ class _AboutUsHomeState extends State<AboutUsHome> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         color: Colors.lightBlue,
-        child: Center(
-          child: RaisedButton(
-            child: Text("Tab App"),
-            hoverColor: Colors.green,
-            splashColor: Colors.red,
-            onPressed: (){
-              
-            }
-          ),
-          ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              color: Colors.black45,
+              width: MediaQuery.of(context).size.width*.5,
+              height: MediaQuery.of(context).size.height*.5,
+            ),
+            Container(
+              color: Colors.green,
+              width: MediaQuery.of(context).size.width*.5,
+              height: MediaQuery.of(context).size.height*.5,
+            ),
+          ],
         ),
+      ),
     );
   }
 }
